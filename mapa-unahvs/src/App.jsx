@@ -3,13 +3,13 @@ import "./map.css";
 
 const HOTSPOTS = [
   {
-    id: "cancha",
-    title: "Cancha",
-    description: "Aquí se juega futbol.",
-    top: "112px",
-    left: "60px",
-    width: "55px",
-    height: "83px",
+    id: "biblioteca",
+    title: "Biblioteca",
+    description: "Aquí se encuentran las aulas y libros de consulta.",
+    top: "50px",
+    left: "80px",
+    width: "100px",
+    height: "80px",
   },
   {
     id: "cafeteria",
@@ -25,8 +25,8 @@ const HOTSPOTS = [
     title: "Edificio 1",
     description: "Aulas de Ingeniería y laboratorios.",
     top: "100px",
-    left: "200px",
-    width: "70px",
+    left: "100px",
+    width: "120px",
     height: "100px",
   },
 ];
@@ -35,10 +35,14 @@ export default function App() {
   const [active, setActive] = useState(null);
   const containerRef = useRef(null);
 
-  // Cierra el panel al clickar fuera
+  // Cierra el modal al clickar fuera de un hotspot o del modal
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (containerRef.current && !containerRef.current.contains(e.target)) {
+      if (
+        containerRef.current &&
+        !e.target.closest(".hotspot") &&
+        !e.target.closest(".info-panel-floating")
+      ) {
         setActive(null);
       }
     };
@@ -47,36 +51,36 @@ export default function App() {
   }, []);
 
   return (
-    <>
-      <div className="map-wrapper">
-        <div className="map-container" ref={containerRef}>
-          <img src="/campus (2).png" alt="Campus" className="map-image" />
+    <div className="map-wrapper" ref={containerRef}>
+      <div className="map-container">
+        <img src="/campus.png" alt="Campus" className="map-image" />
 
-          {HOTSPOTS.map((spot) => (
-            <button
-              key={spot.id}
-              className={`hotspot ${active === spot.id ? "active" : ""}`}
-              style={{
-                top: spot.top,
-                left: spot.left,
-                width: spot.width,
-                height: spot.height,
-              }}
-              onClick={(e) => {
-                e.stopPropagation(); // evita que el click se propague al document
-                setActive(spot.id);
-              }}
-            />
-          ))}
-        </div>
-
-        {active && (
-          <div className="info-panel">
-            <h2>{HOTSPOTS.find((s) => s.id === active).title}</h2>
-            <p>{HOTSPOTS.find((s) => s.id === active).description}</p>
-          </div>
-        )}
+        {HOTSPOTS.map((spot) => (
+          <button
+            key={spot.id}
+            className="hotspot"
+            style={{
+              top: spot.top,
+              left: spot.left,
+              width: spot.width,
+              height: spot.height,
+            }}
+            onClick={(e) => {
+              e.stopPropagation(); // evita que el click cierre inmediatamente el modal
+              setActive(spot.id);
+            }}
+          />
+        ))}
       </div>
-    </>
+
+      {/* Panel flotante */}
+      {active && (
+        <div className="info-panel-floating">
+          <h2>{HOTSPOTS.find((s) => s.id === active).title}</h2>
+          <p>{HOTSPOTS.find((s) => s.id === active).description}</p>
+          <button onClick={() => setActive(null)}>Cerrar</button>
+        </div>
+      )}
+    </div>
   );
 }
