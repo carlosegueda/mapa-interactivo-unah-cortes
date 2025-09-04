@@ -51,36 +51,45 @@ export default function App() {
   }, []);
 
   return (
-    <div className="map-wrapper" ref={containerRef}>
-      <div className="map-container">
-        <img src="/campus.png" alt="Campus" className="map-image" />
+    <>
+      <div className="map-wrapper" ref={containerRef}>
+        <div className="map-container">
+          <img src="/campus.png" alt="Campus" className="map-image" />
 
-        {HOTSPOTS.map((spot) => (
-          <button
-            key={spot.id}
-            className="hotspot"
-            style={{
-              top: spot.top,
-              left: spot.left,
-              width: spot.width,
-              height: spot.height,
-            }}
-            onClick={(e) => {
-              e.stopPropagation(); // evita que el click cierre inmediatamente el modal
-              setActive(spot.id);
-            }}
-          />
-        ))}
+          {HOTSPOTS.map((spot) => (
+            <button
+              key={spot.id}
+              className="hotspot"
+              style={{
+                top: spot.top,
+                left: spot.left,
+                width: spot.width,
+                height: spot.height,
+              }}
+              onClick={(e) => {
+                e.stopPropagation(); // evita que el click cierre inmediatamente el modal
+                setActive(spot.id);
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Panel flotante */}
+        {active && (
+          <div className="info-panel-floating">
+            <h2>{HOTSPOTS.find((s) => s.id === active).title}</h2>
+            <p>{HOTSPOTS.find((s) => s.id === active).description}</p>
+            <button onClick={() => setActive(null)}>Cerrar</button>
+          </div>
+        )}
       </div>
 
-      {/* Panel flotante */}
-      {active && (
-        <div className="info-panel-floating">
-          <h2>{HOTSPOTS.find((s) => s.id === active).title}</h2>
-          <p>{HOTSPOTS.find((s) => s.id === active).description}</p>
-          <button onClick={() => setActive(null)}>Cerrar</button>
-        </div>
-      )}
-    </div>
+      <div className="fixed-panel">
+        <h2>Información</h2>
+        <p>
+          Este panel siempre permanece en pantalla, sin importar scroll o zoom.
+        </p>
+      </div>
+    </>
   );
 }
