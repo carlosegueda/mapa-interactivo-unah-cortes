@@ -3,32 +3,79 @@ import "./map.css";
 
 const HOTSPOTS = [
   {
-    id: "biblioteca",
-    title: "Biblioteca",
-    description: "Aquí se encuentran las aulas y libros de consulta.",
-    top: "50px",
-    left: "80px",
-    width: "100px",
-    height: "80px",
-  },
-  {
-    id: "cafeteria",
-    title: "Cafetería",
-    description: "Lugar para comer y relajarse.",
-    top: "200px",
-    left: "150px",
-    width: "120px",
-    height: "100px",
-  },
-  {
     id: "edificio1",
     title: "Edificio 1",
-    description: "Aulas de Ingeniería y laboratorios.",
-    top: "100px",
-    left: "100px",
-    width: "120px",
-    height: "100px",
+    description: "Edificio 1 bla bla bla.",
+    top: "208px",
+    left: "132px",
+    width: "88px",
+    height: "46px",
   },
+  {
+    id: "edificio2",
+    title: "Edificio 2",
+    description: "Edificio 2 bla bla bla.",
+    top: "160px",
+    left: "151px",
+    width: "70px",
+    height: "36px",
+  },
+  {
+    id: "edificio3",
+    title: "Edificio 3",
+    description: "Edificio 3 bla bla bla.",
+    top: "116px",
+    left: "224px",
+    width: "55px",
+    height: "37px",
+  },  
+  {
+    id: "edificio4",
+    title: "Edificio 4",
+    description: "Edificio 4 bla bla bla.",
+    top: "63px",
+    left: "263px",
+    width: "72px",
+    height: "37px",
+  },
+  {
+    id: "edificio5",
+    title: "Edificio 5",
+    description: "Edificio 5 bla bla bla.",
+    top: "27px",
+    left: "93px",
+    width: "72px",
+    height: "35px",
+  },
+  {
+    id: "edificio6",
+    title: "Edificio 6",
+    description: "Edificio 6 bla bla bla.",
+    top: "209px",
+    left: "9px",
+    width: "95px",
+    height: "35px",
+  },
+  {
+    id: "anexos",
+    title: "Anexos",
+    description: "Anexos bla bla bla.",
+    top: "162px",
+    left: "132px",
+    width: "16px",
+    height: "46px",
+  },
+
+  {
+    id: "cafeteria1",
+    title: "CocaCola",
+    description: "La coca bla bla bla.",
+    top: "94px",
+    left: "134px",
+    width: "48px",
+    height: "30px",
+  },
+  
 ];
 
 export default function App() {
@@ -89,7 +136,6 @@ export default function App() {
               >
                 <h2>{spot.title}</h2>
                 <p>{spot.description}</p>
-                <button onClick={() => setActive(null)}>Cerrar</button>
               </div>
             );
           })()}
