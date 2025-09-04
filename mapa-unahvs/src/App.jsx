@@ -28,7 +28,7 @@ const HOTSPOTS = [
     left: "224px",
     width: "55px",
     height: "37px",
-  },  
+  },
   {
     id: "edificio4",
     title: "Edificio 4",
@@ -65,6 +65,15 @@ const HOTSPOTS = [
     width: "16px",
     height: "46px",
   },
+  {
+    id: "biblio",
+    title: "Bliblioteca",
+    description: "biblioteca bla bla bla.",
+    top: "233px",
+    left: "266px",
+    width: "20px",
+    height: "24px",
+  },
 
   {
     id: "cafeteria1",
@@ -75,7 +84,54 @@ const HOTSPOTS = [
     width: "48px",
     height: "30px",
   },
-  
+  {
+    id: "cafeteria2",
+    title: "Pepsi",
+    description: "La Pepsi bla bla bla.",
+    top: "190px",
+    left: "116px",
+    width: "17px",
+    height: "17px",
+  },
+  {
+    id: "espresso",
+    title: "EspressoAmericano",
+    description: "esrpeso bla bla bla.",
+    top: "212px",
+    left: "264px",
+    width: "28px",
+    height: "17px",
+  },
+
+  {
+    id: "cancha1",
+    title: "Cancha",
+    description: "cancha bla bla bla.",
+    top: "59px",
+    left: "37px",
+    width: "41px",
+    height: "60px",
+  },
+
+  {
+    id: "cancha2",
+    title: "Canchas",
+    description: "canchas bla bla bla.",
+    top: "132px",
+    left: "111px",
+    width: "36px",
+    height: "26px",
+  },
+
+  {
+    id: "plaza",
+    title: "Plaza Cívica",
+    description: "plaza bla bla bla.",
+    top: "162px",
+    left: "224px",
+    width: "23px",
+    height: "43px",
+  },
 ];
 
 export default function App() {
