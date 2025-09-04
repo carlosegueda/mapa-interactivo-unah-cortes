@@ -84,12 +84,6 @@ export default function App() {
         )}
       </div>
 
-      <div className="fixed-panel">
-        <h2>Información</h2>
-        <p>
-          Este panel siempre permanece en pantalla, sin importar scroll o zoom.
-        </p>
-      </div>
     </>
   );
 }
