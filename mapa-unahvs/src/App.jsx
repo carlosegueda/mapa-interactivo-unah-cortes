@@ -25,8 +25,8 @@ const HOTSPOTS = [
     title: "Edificio 1",
     description: "Aulas de Ingeniería y laboratorios.",
     top: "100px",
-    left: "300px",
-    width: "120px",
+    left: "200px",
+    width: "70px",
     height: "100px",
   },
 ];
@@ -48,36 +48,34 @@ export default function App() {
 
   return (
     <>
-      <div className="mainPanel">
-        <div className="map-wrapper">
-          <div className="map-container" ref={containerRef}>
-            <img src="/campus (2).png" alt="Campus" className="map-image" />
+      <div className="map-wrapper">
+        <div className="map-container" ref={containerRef}>
+          <img src="/campus (2).png" alt="Campus" className="map-image" />
 
-            {HOTSPOTS.map((spot) => (
-              <button
-                key={spot.id}
-                className={`hotspot ${active === spot.id ? "active" : ""}`}
-                style={{
-                  top: spot.top,
-                  left: spot.left,
-                  width: spot.width,
-                  height: spot.height,
-                }}
-                onClick={(e) => {
-                  e.stopPropagation(); // evita que el click se propague al document
-                  setActive(spot.id);
-                }}
-              />
-            ))}
-          </div>
-
-          {active && (
-            <div className="info-panel">
-              <h2>{HOTSPOTS.find((s) => s.id === active).title}</h2>
-              <p>{HOTSPOTS.find((s) => s.id === active).description}</p>
-            </div>
-          )}
+          {HOTSPOTS.map((spot) => (
+            <button
+              key={spot.id}
+              className={`hotspot ${active === spot.id ? "active" : ""}`}
+              style={{
+                top: spot.top,
+                left: spot.left,
+                width: spot.width,
+                height: spot.height,
+              }}
+              onClick={(e) => {
+                e.stopPropagation(); // evita que el click se propague al document
+                setActive(spot.id);
+              }}
+            />
+          ))}
         </div>
+
+        {active && (
+          <div className="info-panel">
+            <h2>{HOTSPOTS.find((s) => s.id === active).title}</h2>
+            <p>{HOTSPOTS.find((s) => s.id === active).description}</p>
+          </div>
+        )}
       </div>
     </>
   );
