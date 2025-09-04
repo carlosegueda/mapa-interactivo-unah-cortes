@@ -75,15 +75,25 @@ export default function App() {
         </div>
 
         {/* Panel flotante */}
-        {active && (
-          <div className="info-panel-floating">
-            <h2>{HOTSPOTS.find((s) => s.id === active).title}</h2>
-            <p>{HOTSPOTS.find((s) => s.id === active).description}</p>
-            <button onClick={() => setActive(null)}>Cerrar</button>
-          </div>
-        )}
+        {active &&
+          (() => {
+            const spot = HOTSPOTS.find((s) => s.id === active);
+            return (
+              <div
+                className="info-panel-floating"
+                style={{
+                  position: "absolute",
+                  top: `calc(${spot.top} - 10px)`, // un poquito arriba del hotspot
+                  left: `calc(${spot.left} + ${spot.width} + 10px)`, // a la derecha del hotspot
+                }}
+              >
+                <h2>{spot.title}</h2>
+                <p>{spot.description}</p>
+                <button onClick={() => setActive(null)}>Cerrar</button>
+              </div>
+            );
+          })()}
       </div>
-
     </>
   );
 }
