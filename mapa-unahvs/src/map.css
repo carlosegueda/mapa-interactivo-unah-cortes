@@ -1,8 +1,21 @@
-.map-container {
-  position: relative;
+body {
+  background-color: #253a69;
+}
+
+.mainPanel {
+  background-color: #253a69;
+  display: flex;
+  flex-direction: column;
+}
+.map-wrapper {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+}
+
+.map-container {
+  border: solid 5px rgb(240, 170, 18);
+  position: relative;
 }
 
 .map-image {
@@ -19,22 +32,20 @@
 }
 
 .hotspot:hover {
-  outline: 2px solid orange;
-  border-radius: 4px;
+  outline: 2px solid #ffcc00;
+  border-radius: 2px;
 }
 
 .hotspot.active {
   outline: 3px solid red;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .info-panel {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: rgba(255,255,255,0.9);
+  margin-top: 1rem;
+  background: #f5f8fa;
   padding: 15px;
-  border-radius: 8px;
-  max-width: 90%;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  border-radius: 2px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
