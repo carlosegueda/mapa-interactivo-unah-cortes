@@ -203,7 +203,14 @@ export default function App() {
 
   return (
     <>
-    <div className="head"> <img src="banda.png"/></div>
+      <div className="foot">
+        {" "}
+        <p>Mapa UNAH Cortés</p> <img src="unahlogo.png" />
+      </div>
+      <div className="head">
+        {" "}
+        <img src="banda.png" />
+      </div>
       <div className="map-wrapper" ref={containerRef}>
         <div className="map-container">
           <img src="/campus.png" alt="Campus" className="map-image" />
@@ -248,7 +255,6 @@ export default function App() {
                 : `calc(${spot.left} - 77px)`, // izquierda (300px ancho + 10px margen)
             };
 
-
             return (
               <div className="info-panel-floating" style={panelStyle}>
                 <p className="titulo">{spot.title}</p>
@@ -257,8 +263,7 @@ export default function App() {
             );
           })()}
       </div>
-
-      <div className="foot"><img src="unahlogo.png"/> <p>Mapa UNAH Cortés</p></div>
+      <img className="bosco" src="bosco.png" />
     </>
   );
 }

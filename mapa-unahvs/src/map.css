@@ -1,5 +1,5 @@
 body {
-  background-color: #003478;
+  background-color: #225282;
   justify-content: center;
   align-items: center;
   font-family: "Helvetica Neue", sans-serif;
@@ -69,8 +69,9 @@ html {
 
 .foot {
   display: flex;
-  padding: 0.1rem 0.5rem 0 0.5rem;
-  gap: 4rem
+  padding: 0.5rem;
+  gap: 4rem;
+  z-index: 0;
 }
 
 
@@ -80,9 +81,18 @@ html {
 
 .foot p{
   font-size: 1.6rem;
-  text-align: end;
+  text-align: start;
   color: white;
   font-family: "Helvetica Neue", sans-serif;
   line-height: 1.3rem;
-  margin: 0.6rem 0 0 0;
+  margin: 0;
+  margin-top: 0.4rem;
+  font-weight: 500;
+}
+
+.bosco{
+  position: absolute;
+  z-index: -1;
+  top: auto;
+  height: 9rem;
 }
