@@ -186,7 +186,6 @@ export default function App() {
   const [active, setActive] = useState(null);
   const containerRef = useRef(null);
 
-  // Cierra el panel al hacer click fuera
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
@@ -207,7 +206,7 @@ export default function App() {
         {" "}
         <p>Mapa UNAH Cortés</p> <img src="unahlogo.png" />
       </div>
-      <div className="head">
+      <div className="band">
         {" "}
         <img src="banda.png" />
       </div>
@@ -233,26 +232,23 @@ export default function App() {
           ))}
         </div>
 
-        {/* Panel flotante dinámico */}
         {active &&
           (() => {
             const spot = HOTSPOTS.find((s) => s.id === active);
             const containerWidth =
               containerRef.current?.offsetWidth || window.innerWidth;
 
-            // Convertir valores de px a número
             const spotLeft = parseInt(spot.left, 10);
             const spotWidth = parseInt(spot.width, 10);
 
-            // Decidir si mostrar a la derecha o izquierda
             const isLeftSide = spotLeft < containerWidth / 2;
 
             const panelStyle = {
               position: "absolute",
               top: `calc(${spot.top} - 10px)`,
               left: isLeftSide
-                ? `calc(${spot.left} + ${spot.width} + 5px)` // derecha
-                : `calc(${spot.left} - 77px)`, // izquierda (300px ancho + 10px margen)
+                ? `calc(${spot.left} + ${spot.width} + 5px)`
+                : `calc(${spot.left} - 77px)`,
             };
 
             return (
@@ -263,7 +259,10 @@ export default function App() {
             );
           })()}
       </div>
-      <img className="bosco" src="bosco.png" />
+      <div className="band">
+        {" "}
+        <img src="banda.png" />
+      </div>
     </>
   );
 }
