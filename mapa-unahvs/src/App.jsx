@@ -200,6 +200,34 @@ export default function App() {
     return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
+
+  // MANEJO DE INFO
+  const [contenido, setContenido] = useState(
+    "Universidad Nacional Autónoma de Honduras en el Valle de Sula."
+  );
+  const [imagenSeleccionada, setImagenSeleccionada] = useState("unahmain.jpg");
+
+  const infoServicios = {
+    "edificio1" : "Edifico 1: Facultad de Psicología, Sociología y Letras. Información Extra por Agregar.",
+    "edificio2" : "Edificio 2: Facultad de Derecho, Contabilidad y Administración de Empresas.",
+    // 3: "Alertas o avisos de consi, recordatos recurrentes y alertas críticas para medicamentos vitales.",
+    // 4: "Historial detallado de consumy opcicompartir con profesionales de salud mediante enlace seguro.",
+    // 5: "Motor de recomendacioias de productos coscuentos personalizados y contenido educativo relevante.",
+  };
+
+  const imagenesServicios = {
+    "edificio1": "edif3.jpg",
+    "edificio2" : "edif6.jpeg",
+    // 3: "alertas.png",
+    // 4: "historial.png",
+    // 5: "recom.jpg",
+  };
+
+  const mostrarInfo = (id) => {
+    setContenido(infoServicios[id]);
+    setImagenSeleccionada(imagenesServicios[id]);
+  };
+
   return (
     <>
       <div className="foot">
@@ -227,6 +255,7 @@ export default function App() {
               onClick={(e) => {
                 e.stopPropagation();
                 setActive(spot.id);
+                mostrarInfo(spot.id);
               }}
             />
           ))}
@@ -264,7 +293,8 @@ export default function App() {
         <img src="banda.png" />
       </div>
       <div className="informacion">
-        <img src="edif3.jpg"/><p>EDIFICIO 3  LABORATORIOS DE FISICA Y QUÍMICA  REGISTRO Y TESORERIA</p>
+        <img src={imagenSeleccionada} />
+        <p>{contenido}</p>
       </div>
     </>
   );
