@@ -95,7 +95,7 @@ const HOTSPOTS = [
   },
   {
     id: "espresso",
-    title: "EspressoAmericano",
+    title: "Espresso Americano",
     description: "esrpeso bla bla bla.",
     top: "212px",
     left: "264px",
@@ -132,13 +132,61 @@ const HOTSPOTS = [
     width: "23px",
     height: "43px",
   },
+
+  {
+    id: "sitraunah",
+    title: "SITRAUNAH",
+    description: "sitraunah bla bla bla.",
+    top: "40px",
+    left: "224px",
+    width: "17px",
+    height: "15px",
+  },
+
+  {
+    id: "lab",
+    title: "Laboratorio",
+    description: "laboratorio bla bla bla.",
+    top: "40px",
+    left: "259px",
+    width: "17px",
+    height: "15px",
+  },
+
+  {
+    id: "sala",
+    title: "Sala de Innovaciones",
+    description: "sala de innovaciones bla bla bla.",
+    top: "60px",
+    left: "192px",
+    width: "17px",
+    height: "15px",
+  },
+  {
+    id: "odonto",
+    title: "Odontología",
+    description: "odonto bla bla bla.",
+    top: "93px",
+    left: "232px",
+    width: "19px",
+    height: "18px",
+  },
+  {
+    id: "libreria",
+    title: "Librería",
+    description: "libreria bla bla bla.",
+    top: "212px",
+    left: "307px",
+    width: "15px",
+    height: "13px",
+  },
 ];
 
 export default function App() {
   const [active, setActive] = useState(null);
   const containerRef = useRef(null);
 
-  // Cierra el modal al clickar fuera de un hotspot o del modal
+  // Cierra el panel al hacer click fuera
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
@@ -155,6 +203,7 @@ export default function App() {
 
   return (
     <>
+    <div className="head"> <img src="banda.png"/></div>
       <div className="map-wrapper" ref={containerRef}>
         <div className="map-container">
           <img src="/campus.png" alt="Campus" className="map-image" />
@@ -170,32 +219,46 @@ export default function App() {
                 height: spot.height,
               }}
               onClick={(e) => {
-                e.stopPropagation(); // evita que el click cierre inmediatamente el modal
+                e.stopPropagation();
                 setActive(spot.id);
               }}
             />
           ))}
         </div>
 
-        {/* Panel flotante */}
+        {/* Panel flotante dinámico */}
         {active &&
           (() => {
             const spot = HOTSPOTS.find((s) => s.id === active);
+            const containerWidth =
+              containerRef.current?.offsetWidth || window.innerWidth;
+
+            // Convertir valores de px a número
+            const spotLeft = parseInt(spot.left, 10);
+            const spotWidth = parseInt(spot.width, 10);
+
+            // Decidir si mostrar a la derecha o izquierda
+            const isLeftSide = spotLeft < containerWidth / 2;
+
+            const panelStyle = {
+              position: "absolute",
+              top: `calc(${spot.top} - 10px)`,
+              left: isLeftSide
+                ? `calc(${spot.left} + ${spot.width} + 5px)` // derecha
+                : `calc(${spot.left} - 77px)`, // izquierda (300px ancho + 10px margen)
+            };
+
+
             return (
-              <div
-                className="info-panel-floating"
-                style={{
-                  position: "absolute",
-                  top: `calc(${spot.top} - 10px)`, // un poquito arriba del hotspot
-                  left: `calc(${spot.left} + ${spot.width} + 10px)`, // a la derecha del hotspot
-                }}
-              >
-                <h2>{spot.title}</h2>
-                <p>{spot.description}</p>
+              <div className="info-panel-floating" style={panelStyle}>
+                <p className="titulo">{spot.title}</p>
+                {/* <p className="info">{spot.description}</p> */}
               </div>
             );
           })()}
       </div>
+
+      <div className="foot"><img src="unahlogo.png"/> <p>Mapa UNAH Cortés</p></div>
     </>
   );
 }

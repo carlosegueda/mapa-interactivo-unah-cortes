@@ -1,7 +1,8 @@
 body {
-  background-color: #253a69;
+  background-color: #003478;
   justify-content: center;
   align-items: center;
+  font-family: "Helvetica Neue", sans-serif;
 }
 
 html {
@@ -39,21 +40,49 @@ html {
   color: #fff;
   padding: 6px;
   border-radius: 3px;
-  max-width: 100px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  width: 60px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   z-index: 1000;
   pointer-events: auto;
 }
 
-.info-panel-floating h2 {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 0.5rem;
+.info-panel-floating .titulo {
+  font-family: "Helvetica Neue", sans-serif;
+  color: white;
+  font-size: 0.6rem;
   margin: 0;
-  margin-bottom: 0.4rem;
+  /* margin-bottom: 0.4rem; */
+  -webkit-text-stroke: 0;
 }
 
-.info-panel-floating p {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+.info-panel-floating .info {
+  color: white;
+  font-family: "Helvetica Neue", sans-serif;
   font-size: 0.5rem;
   margin: 0;
+}
+
+.head img {
+  height: 1rem;
+  width: 23.4rem;
+}
+
+.foot {
+  display: flex;
+  padding: 0.1rem 0.5rem 0 0.5rem;
+  gap: 4rem
+}
+
+
+.foot img {
+  height: 4rem;
+}
+
+.foot p{
+  font-size: 1.6rem;
+  text-align: end;
+  color: white;
+  font-family: "Helvetica Neue", sans-serif;
+  line-height: 1.3rem;
+  margin: 0.6rem 0 0 0;
 }
