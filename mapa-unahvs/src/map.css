@@ -116,3 +116,13 @@ html {
   top: auto;
   height: 9rem;
 }
+
+.informacion{
+  display: flex;
+  height: 10rem;
+  background-color: aqua;
+}
+ 
+.informacion img{
+  height: 7rem;
+}

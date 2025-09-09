@@ -263,6 +263,9 @@ export default function App() {
         {" "}
         <img src="banda.png" />
       </div>
+      <div className="informacion">
+        <img src="unahlogo.png"/><p>HOLA HOLA HOLA</p>
+      </div>
     </>
   );
 }
