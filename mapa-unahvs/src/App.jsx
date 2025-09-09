@@ -264,7 +264,7 @@ export default function App() {
         <img src="banda.png" />
       </div>
       <div className="informacion">
-        <img src="unahlogo.png"/><p>HOLA HOLA HOLA</p>
+        <img src="edif3.jpg"/><p>EDIFICIO 3  LABORATORIOS DE FISICA Y QUÍMICA  REGISTRO Y TESORERIA</p>
       </div>
     </>
   );
